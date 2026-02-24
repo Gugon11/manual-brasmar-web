@@ -862,6 +862,13 @@
       margin: 28px 0;
     }
 
+    .camera-seq-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 14px;
+      margin: 20px 0 28px;
+    }
+
     .camera-card {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -874,6 +881,13 @@
     .camera-card:hover {
       border-color: var(--border-2);
       transform: translateY(-1px);
+    }
+
+    .camera-card.seq-card {
+      aspect-ratio: 1 / 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
     .camera-card.enabled {
@@ -984,6 +998,24 @@
       flex: 1;
       height: 1px;
       background: linear-gradient(90deg, var(--border-2), transparent);
+    }
+
+    @media (max-width: 1500px) {
+      .camera-seq-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 980px) {
+      .camera-seq-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .camera-seq-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     /* ═══════════════════════════════════════════════════════════════
@@ -1524,20 +1556,13 @@
       <div class="section-num">01</div>
       <p class="section-eyebrow">01 — Introdução</p>
       <h2 class="section-title">Introdução</h2>
-      <p class="section-lead">Sistema industrial integrado de monitorização e encaminhamento automático de cuvetes, que
-        combina visão computacional, pesagem automatizada e controlo de equipamentos físicos numa única plataforma.</p>
+      <p class="section-lead">Sistema de monitorização e encaminhamento automático de cuvetes, que combina visão computacional, pesagem e controlo de flaps numa única plataforma.</p>
 
-      <p>A <strong>Plataforma Brasmar</strong> foi desenvolvida para apoiar as operações de linhas de produção com
-        transporte de cuvetes por tapete rolante. O sistema monitoriza continuamente o fluxo de cuvetes, identifica cada
-        produto com recurso a visão computacional e toma decisões de encaminhamento automático com base no peso e na
-        base de dados de produtos — sem necessidade de intervenção humana.</p>
+      <p>A <strong>Plataforma Brasmar</strong> monitoriza linhas de produção com transporte de cuvetes por tapete rolante. O sistema identifica cada produto por visão computacional, lê o peso na balança e aciona os flaps de encaminhamento sem intervenção humana.</p>
 
-      <p>A plataforma unifica a gestão de utilizadores, a monitorização em tempo real, o controlo dos equipamentos de
-        encaminhamento e o registo de ocorrências numa única solução segura e integrada, acessível por qualquer browser
-        da rede interna.</p>
+      <p>A plataforma reúne num só sistema a gestão de utilizadores, a monitorização em tempo real, o controlo dos flaps e o registo de ocorrências, acessível por qualquer browser da rede interna.</p>
 
-      <p>A conceção, desenvolvimento e manutenção técnica desta solução são assegurados pela
-        <strong>Termoave LDA</strong>, em articulação com a operação da Brasmar.</p>
+      <p>O desenvolvimento técnico foi feito pela <strong>Termoave LDA</strong>, com as equipas operacionais da Brasmar.</p>
 
       <h3 class="sub-title">Objetivos do Sistema</h3>
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:20px 0 40px;">
@@ -1545,33 +1570,25 @@
           style="padding:20px 22px; background:var(--surface); border:1px solid var(--border); border-left:3px solid var(--amber); border-radius:var(--radius);">
           <div style="font-family:var(--ui); font-weight:600; font-size:13px; margin-bottom:8px; color:var(--text);">
             Encaminhamento automático</div>
-          <div style="font-size:12px; color:var(--text-muted); line-height:1.7;">Determinar o destino de cada cuvete com
-            base no seu peso e no produto correspondente, acionando os equipamentos físicos de encaminhamento sem
-            intervenção humana.</div>
+          <div style="font-size:12px; color:var(--text-muted); line-height:1.7;">Decidir o destino de cada cuvete pelo peso e produto, acionando os flaps sem intervenção humana.</div>
         </div>
         <div
           style="padding:20px 22px; background:var(--surface); border:1px solid var(--border); border-left:3px solid var(--amber); border-radius:var(--radius);">
           <div style="font-family:var(--ui); font-weight:600; font-size:13px; margin-bottom:8px; color:var(--text);">
             Monitorização em tempo real</div>
-          <div style="font-size:12px; color:var(--text-muted); line-height:1.7;">Disponibilizar imagem em direto de
-            todas as câmaras e detetar automaticamente anomalias — cuvetes paradas, acumulação excessiva ou
-            congestionamentos no túnel de saída.</div>
+          <div style="font-size:12px; color:var(--text-muted); line-height:1.7;">Transmitir imagem em direto de todas as câmaras e detetar anomalias: cuvetes paradas, acumulação ou congestionamento no túnel.</div>
         </div>
         <div
           style="padding:20px 22px; background:var(--surface); border:1px solid var(--border); border-left:3px solid var(--amber); border-radius:var(--radius);">
           <div style="font-family:var(--ui); font-weight:600; font-size:13px; margin-bottom:8px; color:var(--text);">
             Gestão centralizada de acesso</div>
-          <div style="font-size:12px; color:var(--text-muted); line-height:1.7;">Garantir que todos os módulos partilham
-            um único sistema de autenticação, com perfis de utilizador distintos e auditáveis para operadores,
-            supervisores e administradores.</div>
+          <div style="font-size:12px; color:var(--text-muted); line-height:1.7;">Um único sistema de autenticação para todos os módulos, com perfis auditáveis para operadores, supervisores e administradores.</div>
         </div>
         <div
           style="padding:20px 22px; background:var(--surface); border:1px solid var(--border); border-left:3px solid var(--amber); border-radius:var(--radius);">
           <div style="font-family:var(--ui); font-weight:600; font-size:13px; margin-bottom:8px; color:var(--text);">
             Registo e auditoria</div>
-          <div style="font-size:12px; color:var(--text-muted); line-height:1.7;">Manter um histórico detalhado de todas
-            as operações de encaminhamento, eventos de alarme e sessões de processamento para análise e auditoria
-            posteriores.</div>
+          <div style="font-size:12px; color:var(--text-muted); line-height:1.7;">Guardar todas as operações de encaminhamento, alarmes e sessões para consulta e auditoria.</div>
         </div>
       </div>
 
@@ -1581,23 +1598,19 @@
           <span class="card-icon"><span class="icon-svg" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path><circle cx="12" cy="16" r="1.2"></circle></svg></span></span>
           <div class="card-title">Portal Central</div>
           <div class="card-port">https://10.7.3.1/</div>
-          <div class="card-desc">Ponto de entrada único da plataforma. Gere a autenticação, as sessões de utilizador e o
-            acesso a todos os módulos. Inclui painel de administração para gestão de contas e perfis de acesso.</div>
+          <div class="card-desc">Gere a autenticação, sessões e acesso a todos os módulos. Inclui painel de administração para contas e perfis.</div>
         </div>
         <div class="module-card card-routing">
           <span class="card-icon"><span class="icon-svg" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 4 7l8 4 8-4-8-4Z"></path><path d="M4 7v10l8 4 8-4V7"></path><path d="M12 11v10"></path></svg></span></span>
           <div class="card-title">Cuvette Routing</div>
           <div class="card-port">https://10.7.3.1/routing/</div>
-          <div class="card-desc">Sistema de deteção, rastreamento e encaminhamento automático de cuvetes. Monitoriza a
-            linha de produção em tempo real, lê pesos da balança e aciona os flaps físicos com base no produto detetado.
-          </div>
+          <div class="card-desc">Deteta, rastreia e encaminha cuvetes na linha de produção. Lê pesos da balança e aciona os flaps com base no produto detetado.</div>
         </div>
         <div class="module-card card-tunnel">
           <span class="card-icon"><span class="icon-svg" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="8" y="3" width="8" height="15" rx="3"></rect><circle cx="12" cy="7" r="1"></circle><circle cx="12" cy="10.5" r="1"></circle><circle cx="12" cy="14" r="1"></circle><path d="M12 18v3"></path></svg></span></span>
           <div class="card-title">Cuvette Tunnel</div>
           <div class="card-port">https://10.7.3.1/tunnel/</div>
-          <div class="card-desc">Sistema de monitorização do túnel de saída. Deteta cuvetes paradas, contagem acima do
-            limite e situações de congestionamento, gerando alarmes em tempo real visíveis na interface.</div>
+          <div class="card-desc">Monitoriza o túnel de saída. Deteta cuvetes paradas, contagem acima do limite e congestionamento, com alarmes em tempo real.</div>
         </div>
       </div>
     </section>
@@ -1607,14 +1620,9 @@
       <div class="section-num">02</div>
       <p class="section-eyebrow">02 — Arquitetura Global</p>
       <h2 class="section-title">Arquitetura Global</h2>
-      <p class="section-lead">Três módulos integrados, um único ponto de entrada seguro. Toda a comunicação com o
-        exterior passa pelo servidor de acesso, que valida a identidade do utilizador antes de encaminhar cada pedido.
-      </p>
+      <p class="section-lead">Três módulos, um único ponto de entrada. Toda a comunicação com o exterior passa pelo servidor de acesso, que valida a identidade antes de encaminhar cada pedido.</p>
 
-      <p>A Plataforma Brasmar está organizada de modo a que nenhum módulo esteja diretamente exposto à rede sem
-        validação prévia. O servidor de acesso centraliza a autenticação e encaminha os pedidos para o Portal Central,
-        para o Cuvette Routing ou para o Cuvette Tunnel conforme a rota solicitada. Internamente, os serviços comunicam
-        entre si de forma segura e isolada.</p>
+      <p>Nenhum módulo está exposto à rede sem validação prévia. O servidor de acesso valida a autenticação e encaminha os pedidos para o Portal Central, Cuvette Routing ou Cuvette Tunnel conforme a rota.</p>
 
       <!-- Architecture SVG Diagram -->
       <div class="arch-diagram">
@@ -1767,8 +1775,7 @@
       </div>
 
       <h3 class="sub-title">Rotas de Acesso</h3>
-      <p>Todos os módulos são acedidos pelo mesmo endereço base (<code>https://10.7.3.1</code>). O servidor de acesso
-        encaminha automaticamente cada pedido para o módulo correto com base na rota indicada no browser.</p>
+      <p>Todos os módulos usam o mesmo endereço base (<code>https://10.7.3.1</code>). O servidor de acesso encaminha cada pedido para o módulo correto conforme a rota no browser.</p>
       <div class="table-wrap">
         <table>
           <thead>
@@ -1801,61 +1808,54 @@
 
       <div class="info-box blue" style="margin-top:0;">
         <span class="info-icon"><span class="icon-svg" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 10v6"></path><path d="M12 7.2h.01"></path></svg></span></span>
-        <span>Não é necessário memorizar endereços ou portos específicos de cada módulo. Basta aceder a
-          <code>https://10.7.3.1/</code> — o sistema trata do encaminhamento de forma transparente após a
-          autenticação.</span>
+        <span>Não é preciso memorizar endereços ou portos de cada módulo. Basta aceder a
+          <code>https://10.7.3.1/</code>; o sistema trata do encaminhamento após a autenticação.</span>
       </div>
 
       <h3 class="sub-title">Fluxo Geral de Dados</h3>
-      <p>O percurso típico de um pedido e de uma cuvete na plataforma segue as seguintes etapas:</p>
+      <p>O percurso típico de um pedido na plataforma:</p>
 
       <div style="display:flex; flex-direction:column; gap:0; margin:24px 0;">
         <div class="auth-step">
           <div class="auth-circle ac-amber">1</div>
           <div class="auth-body">
             <div class="auth-title">Autenticação do utilizador</div>
-            <div class="auth-detail">O utilizador acede ao Portal Central e autentica-se. É criada uma sessão segura
-              associada ao perfil de acesso.</div>
+            <div class="auth-detail">O utilizador autentica-se no Portal Central. É criada uma sessão associada ao seu perfil.</div>
           </div>
         </div>
         <div class="auth-step">
           <div class="auth-circle ac-amber">2</div>
           <div class="auth-body">
             <div class="auth-title">Validação de cada pedido</div>
-            <div class="auth-detail">Em cada pedido subsequente, o servidor de acesso verifica automaticamente a
-              validade da sessão. Pedidos não autenticados são rejeitados antes de chegar a qualquer módulo.</div>
+            <div class="auth-detail">Em cada pedido seguinte, o servidor verifica a sessão. Pedidos não autenticados são rejeitados.</div>
           </div>
         </div>
         <div class="auth-step">
           <div class="auth-circle ac-blue">3</div>
           <div class="auth-body">
             <div class="auth-title">Captura de imagem contínua</div>
-            <div class="auth-detail">As câmaras transmitem imagem em tempo real para o Cuvette Routing e para o Cuvette
-              Tunnel, que processam os fotogramas de forma independente e contínua.</div>
+            <div class="auth-detail">As câmaras transmitem imagem em tempo real para o Cuvette Routing e Cuvette Tunnel, que processam os fotogramas em contínuo.</div>
           </div>
         </div>
         <div class="auth-step">
           <div class="auth-circle ac-blue">4</div>
           <div class="auth-body">
             <div class="auth-title">Deteção, pesagem e correspondência</div>
-            <div class="auth-detail">O Cuvette Routing identifica cada cuvete, acompanha o seu percurso e, quando passa
-              pela balança, lê o peso e determina o produto correspondente na base de dados.</div>
+            <div class="auth-detail">O Cuvette Routing identifica cada cuvete e acompanha o percurso. Na balança, lê o peso e determina o produto.</div>
           </div>
         </div>
         <div class="auth-step">
           <div class="auth-circle ac-green">5</div>
           <div class="auth-body">
             <div class="auth-title">Encaminhamento automático</div>
-            <div class="auth-detail">Com base no produto identificado, o sistema aciona o flap físico correto,
-              direcionando a cuvete para a saída adequada sem intervenção humana.</div>
+            <div class="auth-detail">Com base no produto, o sistema aciona o flap correto e direciona a cuvete para a saída adequada.</div>
           </div>
         </div>
         <div class="auth-step">
           <div class="auth-circle ac-green">6</div>
           <div class="auth-body">
             <div class="auth-title">Monitorização e alertas</div>
-            <div class="auth-detail">O Cuvette Tunnel monitoriza em contínuo o túnel de saída. Qualquer anomalia —
-              cuvete parada, acumulação excessiva ou cuvetes sobrepostas — gera um alarme imediato na interface.</div>
+            <div class="auth-detail">O Cuvette Tunnel vigia o túnel de saída. Anomalias (cuvete parada, acumulação, cuvetes sobrepostas) geram alarme imediato na interface.</div>
           </div>
         </div>
       </div>
@@ -1866,12 +1866,12 @@
       <div class="section-num">03</div>
       <p class="section-eyebrow">03 — Módulo</p>
       <h2 class="section-title">Brasmar Platform</h2>
-      <p class="section-lead">Núcleo de segurança e gestão de identidade da plataforma. Responsável pela autenticação, pela gestão de utilizadores e por garantir que apenas acessos autorizados chegam a cada módulo.</p>
+      <p class="section-lead">Gere a segurança e a identidade na plataforma: autenticação, gestão de utilizadores e controlo de acesso a cada módulo.</p>
 
-      <p>Este módulo é composto por três componentes que trabalham em conjunto de forma transparente: o <strong>serviço de autenticação</strong>, que gere identidades e sessões; o <strong>portal de aplicações</strong>, que serve de página de entrada após o login; e o <strong>servidor de acesso</strong>, que valida cada pedido antes de o encaminhar para o destino correto.</p>
+      <p>Composto por três componentes: o <strong>serviço de autenticação</strong> (identidades e sessões), o <strong>portal de aplicações</strong> (página de entrada após login) e o <strong>servidor de acesso</strong> (validação de pedidos antes do encaminhamento).</p>
 
       <h3 class="sub-title">Acesso ao Sistema</h3>
-      <p>O acesso à plataforma é feito exclusivamente através de um browser, introduzindo o endereço <code>https://10.7.3.1/</code>. Não é necessária nenhuma aplicação adicional. O processo é o seguinte:</p>
+      <p>O acesso é feito pelo browser, no endereço <code>https://10.7.3.1/</code>. Não é preciso instalar nada.</p>
 
       <div class="auth-flow" style="margin:20px 0 32px;">
         <div class="auth-step">
@@ -1885,39 +1885,39 @@
           <div class="auth-circle ac-amber">2</div>
           <div class="auth-body">
             <div class="auth-title">Introduzir credenciais</div>
-            <div class="auth-detail">Inserir o nome de utilizador e a palavra-passe na página de login. As credenciais são verificadas de forma segura pelo serviço de autenticação.</div>
+            <div class="auth-detail">Inserir o nome de utilizador e a palavra-passe. As credenciais são verificadas pelo serviço de autenticação.</div>
           </div>
         </div>
         <div class="auth-step">
           <div class="auth-circle ac-green">3</div>
           <div class="auth-body">
             <div class="auth-title">Acesso ao portal de aplicações</div>
-            <div class="auth-detail">Após autenticação bem-sucedida, o utilizador é redirecionado para o portal, onde estão listadas as aplicações disponíveis conforme o seu perfil. A sessão mantém-se ativa durante <strong>8 horas</strong>.</div>
+            <div class="auth-detail">Após login, o utilizador é redirecionado para o portal com as aplicações do seu perfil. A sessão dura <strong>8 horas</strong>.</div>
           </div>
         </div>
       </div>
 
       <div class="info-box amber">
         <span class="info-icon"><span class="icon-svg" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 2.8 19h18.4L12 3Z"></path><path d="M12 9v5"></path><path d="M12 17.2h.01"></path></svg></span></span>
-        <span>As credenciais de acesso são pessoais e intransmissíveis. Em equipamentos partilhados, utilize sempre a opção <strong>Sair</strong> no final de cada sessão para invalidar o acesso imediatamente.</span>
+        <span>As credenciais são pessoais e intransmissíveis. Em equipamentos partilhados, use a opção <strong>Sair</strong> no final da sessão.</span>
       </div>
 
       <h3 class="sub-title">Portal de Aplicações</h3>
-      <p>Após a autenticação, o utilizador acede ao portal central, que lista todas as aplicações disponíveis. Para cada módulo, o portal indica o nome, a descrição e o estado de disponibilidade do serviço. O utilizador acede a uma aplicação clicando no respetivo cartão.</p>
+      <p>Após login, o portal lista os módulos disponíveis com nome, descrição e estado. Para aceder, basta clicar no cartão.</p>
 
       <div class="two-col" style="margin:20px 0;">
         <div style="padding:20px 22px; background:var(--surface); border:1px solid var(--border); border-left:3px solid var(--amber); border-radius:var(--radius);">
           <div style="font-family:var(--ui); font-weight:600; font-size:13px; margin-bottom:8px; color:var(--text);">Aplicações visíveis</div>
-          <div style="font-size:12px; color:var(--text-muted); line-height:1.7;">Cada utilizador vê apenas as aplicações às quais o seu perfil tem permissão de acesso. A lista é atualizada automaticamente após qualquer alteração de perfil.</div>
+          <div style="font-size:12px; color:var(--text-muted); line-height:1.7;">Cada utilizador vê apenas as aplicações do seu perfil. A lista atualiza-se automaticamente se o perfil mudar.</div>
         </div>
         <div style="padding:20px 22px; background:var(--surface); border:1px solid var(--border); border-left:3px solid var(--green); border-radius:var(--radius);">
           <div style="font-family:var(--ui); font-weight:600; font-size:13px; margin-bottom:8px; color:var(--text);">Estado dos serviços</div>
-          <div style="font-size:12px; color:var(--text-muted); line-height:1.7;">O portal verifica automaticamente a disponibilidade de cada módulo. Se um serviço estiver temporariamente indisponível, o cartão é apresentado como inativo com indicação do estado.</div>
+          <div style="font-size:12px; color:var(--text-muted); line-height:1.7;">O portal verifica a disponibilidade de cada módulo. Se um serviço estiver indisponível, o cartão aparece inativo.</div>
         </div>
       </div>
 
       <h3 class="sub-title">Perfis de Acesso</h3>
-      <p>A plataforma define quatro perfis de acesso com permissões distintas em cada módulo. Um utilizador pode ter mais do que um perfil em simultâneo; nesse caso, prevalece o conjunto de permissões mais alargado.</p>
+      <p>Quatro perfis de acesso com permissões distintas por módulo. Um utilizador pode ter mais do que um perfil; nesse caso, prevalece o mais alargado.</p>
 
       <div class="table-wrap">
         <table>
@@ -1959,11 +1959,11 @@
       </div>
 
       <h3 class="sub-title">Gestão de Utilizadores</h3>
-      <p>A gestão de contas é exclusiva do perfil <strong>admin</strong>, acessível através do painel de administração no menu do portal. O administrador pode criar novas contas, atribuir ou revogar perfis, desativar contas sem as eliminar e forçar a redefinição de palavra-passe.</p>
+      <p>Exclusiva do perfil <strong>admin</strong>, no painel de administração. Permite criar contas, atribuir ou revogar perfis, desativar contas e forçar redefinição de palavra-passe.</p>
 
       <div class="info-box green">
         <span class="info-icon"><span class="icon-svg" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="m8 12.3 2.6 2.6L16 9.5"></path></svg></span></span>
-        <span>Boa prática: criar uma conta individual para cada utilizador, atribuir sempre o perfil mínimo necessário para a função exercida, e desativar imediatamente contas de utilizadores que deixem de precisar de acesso.</span>
+        <span>Boa prática: uma conta por utilizador, perfil mínimo para a função exercida, e desativar contas quando o acesso deixar de ser necessário.</span>
       </div>
     </section>
 
@@ -1972,7 +1972,7 @@
       <div class="section-num">04</div>
       <p class="section-eyebrow">04 — Módulo</p>
       <h2 class="section-title">Cuvette Routing</h2>
-      <p class="section-lead">Sistema de deteção, rastreamento e encaminhamento automático de cuvetes na linha de produção. Monitoriza as câmaras em tempo real, lê pesos da balança e aciona os flaps físicos com base no produto identificado.</p>
+      <p class="section-lead">Deteta, rastreia e encaminha cuvetes na linha de produção. Lê pesos da balança e aciona os flaps com base no produto identificado.</p>
 
       <!-- Permissões -->
       <h3 class="sub-title">Permissões por Perfil</h3>
@@ -2002,36 +2002,11 @@
 
       <!-- Câmaras -->
       <h3 class="sub-title">Câmaras da Linha de Produção</h3>
-      <p>O sistema dispõe de 8 câmaras configuradas. As câmaras ativas processam na seguinte ordem: <strong>camera05 → camera04 → camera06 → camera08 → camera02</strong>. Esta sequência corresponde ao percurso físico das cuvetes na linha.</p>
+      <p>O sistema tem 5 câmaras configuradas. As ativas processam por esta ordem: <strong>camera05 → camera04 → camera06 → camera08 → camera02</strong>, que corresponde ao percurso físico das cuvetes.</p>
 
-      <div class="camera-grid">
-        <div class="camera-card disabled">
-          <div class="cam-id">camera01</div>
-          <div class="cam-location">Saída Túnel</div>
-          <div class="cam-ip">10.7.2.250</div>
-          <div class="cam-status status-off"><span class="status-led led-off"></span> Desativada</div>
-        </div>
-        <div class="camera-card enabled">
-          <div class="cam-id">camera02</div>
-          <div class="cam-location">Flap 4</div>
-          <div class="cam-ip">10.7.2.251</div>
-          <div class="cam-status status-on"><span class="status-led led-on"></span> Ativa</div>
-          <div class="cam-caps"><span class="cap-badge">5.ª na seq.</span><span class="cap-badge">LC4</span></div>
-        </div>
-        <div class="camera-card disabled">
-          <div class="cam-id">camera03</div>
-          <div class="cam-location">Testes</div>
-          <div class="cam-ip">10.7.2.252</div>
-          <div class="cam-status status-off"><span class="status-led led-off"></span> Desativada</div>
-        </div>
-        <div class="camera-card enabled">
-          <div class="cam-id">camera04</div>
-          <div class="cam-location">Pós-Balança</div>
-          <div class="cam-ip">10.7.2.253</div>
-          <div class="cam-status status-on"><span class="status-led led-on"></span> Ativa</div>
-          <div class="cam-caps"><span class="cap-badge">2.ª na seq.</span></div>
-        </div>
-        <div class="camera-card enabled" style="border-top-color: var(--amber);">
+      <div class="camera-seq-grid">
+
+        <div class="camera-card enabled seq-card" style="border-top-color: var(--amber);">
           <div class="cam-id">camera05</div>
           <div class="cam-location" style="color:var(--amber);"><span class="icon-svg cam-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 7h16"></path><path d="M12 7v11"></path><path d="M8 18h8"></path><path d="M7 7 4 12h6L7 7Z"></path><path d="M17 7l-3 5h6l-3-5Z"></path></svg></span>Balança</div>
           <div class="cam-ip">10.7.2.254</div>
@@ -2041,31 +2016,43 @@
             <span class="cap-badge">1.ª na seq.</span>
           </div>
         </div>
-        <div class="camera-card enabled">
+
+        <div class="camera-card enabled seq-card">
+          <div class="cam-id">camera04</div>
+          <div class="cam-location">Pós-Balança</div>
+          <div class="cam-ip">10.7.2.253</div>
+          <div class="cam-status status-on"><span class="status-led led-on"></span> Ativa</div>
+          <div class="cam-caps"><span class="cap-badge">2.ª na seq.</span></div>
+        </div>
+
+        <div class="camera-card enabled seq-card">
           <div class="cam-id">camera06</div>
           <div class="cam-location">Flap 1 &amp; 2</div>
           <div class="cam-ip">10.7.2.255</div>
           <div class="cam-status status-on"><span class="status-led led-on"></span> Ativa</div>
           <div class="cam-caps"><span class="cap-badge">3.ª na seq.</span><span class="cap-badge">LC1 · LC2</span></div>
         </div>
-        <div class="camera-card disabled">
-          <div class="cam-id">camera07</div>
-          <div class="cam-location">Zoom-out Flaps</div>
-          <div class="cam-ip">10.7.3.5</div>
-          <div class="cam-status status-off"><span class="status-led led-off"></span> Desativada</div>
-        </div>
-        <div class="camera-card enabled">
+
+        <div class="camera-card enabled seq-card">
           <div class="cam-id">camera08</div>
           <div class="cam-location">Flap 3</div>
           <div class="cam-ip">10.7.3.4</div>
           <div class="cam-status status-on"><span class="status-led led-on"></span> Ativa</div>
           <div class="cam-caps"><span class="cap-badge">4.ª na seq.</span><span class="cap-badge">LC3</span></div>
         </div>
+
+        <div class="camera-card enabled seq-card">
+          <div class="cam-id">camera02</div>
+          <div class="cam-location">Flap 4</div>
+          <div class="cam-ip">10.7.2.251</div>
+          <div class="cam-status status-on"><span class="status-led led-on"></span> Ativa</div>
+          <div class="cam-caps"><span class="cap-badge">5.ª na seq.</span><span class="cap-badge">LC4</span></div>
+        </div>
       </div>
 
       <!-- Iniciar processamento -->
       <h3 class="sub-title">Iniciar e Parar o Processamento</h3>
-      <p>O arranque e paragem do processamento estão disponíveis para os perfis <strong>operator</strong> e <strong>admin</strong>. O streaming de vídeo mantém-se sempre ativo, independentemente do estado do processamento.</p>
+      <p>Disponível para os perfis <strong>operator</strong> e <strong>admin</strong>. O streaming de vídeo mantém-se ativo mesmo com o processamento parado.</p>
 
       <div class="two-col" style="margin:20px 0 16px;">
         <div style="padding:20px 22px; background:var(--surface); border:1px solid var(--border); border-left:3px solid var(--green); border-radius:var(--radius);">
@@ -2088,12 +2075,12 @@
 
       <div class="info-box amber">
         <span class="info-icon"><span class="icon-svg" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 2.8 19h18.4L12 3Z"></path><path d="M12 9v5"></path><path d="M12 17.2h.01"></path></svg></span></span>
-        <span>Parar o processamento interrompe imediatamente todas as decisões de encaminhamento automático. Certifique-se de que não existem cuvetes em trânsito nos flaps antes de efetuar esta operação.</span>
+        <span>Parar o processamento interrompe todas as decisões de encaminhamento. Verifique que não há cuvetes em trânsito nos flaps antes de parar.</span>
       </div>
 
       <!-- Linhas Virtuais -->
       <h3 class="sub-title">Configuração de Linhas Virtuais</h3>
-      <p>As linhas virtuais são marcações desenhadas sobre o frame de vídeo de cada câmara. Quando uma cuvete cruza uma linha, o sistema executa a ação associada — registar peso, transferir rastreamento ou acionar um flap. A configuração está disponível para <strong>operator</strong> e <strong>admin</strong>.</p>
+      <p>Marcações desenhadas sobre o frame de cada câmara. Quando uma cuvete cruza uma linha, o sistema executa a ação correspondente: registar peso, transferir rastreamento ou acionar um flap. Configurável por <strong>operator</strong> e <strong>admin</strong>.</p>
 
       <div class="info-box amber" style="margin-bottom:20px;">
         <span class="info-icon"><span class="icon-svg" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 2.8 19h18.4L12 3Z"></path><path d="M12 9v5"></path><path d="M12 17.2h.01"></path></svg></span></span>
@@ -2178,8 +2165,8 @@
       </div>
 
       <!-- PMS -->
-      <h3 class="sub-title">Base de Dados PMS</h3>
-      <p>O catálogo PMS associa cada código de produto SAP às dimensões físicas da cuvete correspondente, permitindo ao sistema determinar o destino de encaminhamento. O catálogo é atualizado pelo perfil <strong>admin</strong> e recarregado automaticamente após substituição do ficheiro, sem necessidade de reiniciar o processamento.</p>
+      <h3 class="sub-title">Dados PMS</h3>
+      <p>O catálogo PMS associa cada código SAP às dimensões da cuvete para determinar o destino de encaminhamento. Atualizado pelo perfil <strong>admin</strong>; o sistema recarrega os dados automaticamente após substituição do ficheiro, sem reiniciar o processamento.</p>
 
       <div class="table-wrap">
         <table>
@@ -2196,12 +2183,12 @@
 
       <div class="info-box green">
         <span class="info-icon"><span class="icon-svg" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="m8 12.3 2.6 2.6L16 9.5"></path></svg></span></span>
-        <span>O painel PMS em tempo real mostra todas as correspondências da sessão corrente — código do produto, peso lido e câmara onde foi registada. Está disponível para todos os perfis (viewer e superiores).</span>
+        <span>O painel PMS mostra em tempo real as correspondências da sessão: código do produto, peso e câmara. Disponível para todos os perfis (viewer e superiores).</span>
       </div>
 
       <!-- Histórico -->
       <h3 class="sub-title">Histórico e Exportação</h3>
-      <p>Todas as sessões de processamento são registadas automaticamente. No ecrã de histórico é possível consultar cada execução com data, hora, duração e número de correspondências, expandir os detalhes individuais e exportar para CSV ou Excel. A exportação está disponível para <strong>operator</strong> e <strong>admin</strong>. Todas as datas são apresentadas em fuso horário de Portugal (WET/WEST).</p>
+      <p>Cada sessão é registada automaticamente. No histórico, é possível ver data, hora, duração e correspondências de cada execução, expandir detalhes e exportar para CSV ou Excel (<strong>operator</strong> e <strong>admin</strong>). Datas em fuso horário de Portugal (WET/WEST).</p>
     </section>
 
     <!-- ── 05 · CUVETTE TUNNEL ─────────────────────────────────── -->
@@ -2209,7 +2196,7 @@
       <div class="section-num">05</div>
       <p class="section-eyebrow">05 — Módulo</p>
       <h2 class="section-title">Cuvette Tunnel</h2>
-      <p class="section-lead">Monitorização em tempo real do túnel de saída da linha de produção. Deteta anomalias
+      <p class="section-lead">Monitoriza o túnel de saída da linha de produção por câmara dedicada. Deteta anomalias
         automaticamente e gera alarmes em tempo real com gravação de vídeo.</p>
 
       <!-- Roles -->
@@ -2242,7 +2229,7 @@
 
       <!-- Start/Stop guide -->
       <h3 class="sub-title" style="margin-top:36px;">Iniciar e Parar a Monitorização</h3>
-      <p style="color:var(--text-muted);margin-bottom:18px;">A câmara transmite sempre em direto. A deteção automática de anomalias e geração de alarmes requer que a monitorização esteja ativa.</p>
+      <p style="color:var(--text-muted);margin-bottom:18px;">A câmara transmite sempre em direto. A deteção de anomalias e alarmes só funciona com a monitorização ativa.</p>
       <div class="two-col">
         <div>
           <p style="color:var(--green);font-size:12px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px;">▶ Iniciar</p>
@@ -2310,7 +2297,7 @@
       <div class="two-col" style="margin-top:36px;">
         <div>
           <h3 class="sub-title">Definições Operacionais</h3>
-          <p style="color:var(--text-muted);font-size:13px;margin-bottom:14px;">Configuráveis pelo administrador. As alterações entram em vigor imediatamente.</p>
+          <p style="color:var(--text-muted);font-size:13px;margin-bottom:14px;">Configuráveis pelo administrador. Alterações aplicam-se de imediato.</p>
           <div class="table-wrap">
             <table>
               <thead>
@@ -2352,7 +2339,7 @@
           </div>
 
           <h3 class="sub-title" style="margin-top:24px;">Zonas Lado-a-Lado</h3>
-          <p style="color:var(--text-muted);font-size:13px;line-height:1.7;">Dois polígonos configuráveis delimitam as zonas esquerda e direita do túnel. O administrador define também a direção de fluxo de cada zona para identificar qual a cuvete mais avançada. Reconfigurar após qualquer ajuste físico da câmara.</p>
+          <p style="color:var(--text-muted);font-size:13px;line-height:1.7;">Dois polígonos delimitam as zonas esquerda e direita do túnel. O administrador define a direção de fluxo de cada zona para identificar qual a cuvete mais avançada. Reconfigurar se a câmara for movida.</p>
         </div>
       </div>
     </section>
@@ -2362,7 +2349,7 @@
       <div class="section-num">06</div>
       <p class="section-eyebrow">06 — Segurança</p>
       <h2 class="section-title">Autenticação e Controlo de Acesso</h2>
-      <p class="section-lead">Sistema centralizado de identidade partilhado por todos os módulos. Um único login, perfis
+      <p class="section-lead">Autenticação centralizada partilhada por todos os módulos. Um único login, perfis
         de acesso granulares e sessões seguras com duração de 8 horas.</p>
 
       <!-- Auth flow -->
@@ -2379,28 +2366,28 @@
           <div class="auth-circle ac-amber">2</div>
           <div class="auth-body">
             <div class="auth-title">Introdução de credenciais</div>
-            <div class="auth-detail">O utilizador introduz o nome de utilizador e a palavra-passe na página de autenticação.</div>
+            <div class="auth-detail">O utilizador introduz nome de utilizador e palavra-passe.</div>
           </div>
         </div>
         <div class="auth-step">
           <div class="auth-circle ac-blue">3</div>
           <div class="auth-body">
             <div class="auth-title">Validação de identidade</div>
-            <div class="auth-detail">O sistema verifica as credenciais. Em caso de erro, a página de autenticação é reapresentada com indicação de falha.</div>
+            <div class="auth-detail">O sistema verifica as credenciais. Se falharem, a página reaparece com indicação de erro.</div>
           </div>
         </div>
         <div class="auth-step">
           <div class="auth-circle ac-green">4</div>
           <div class="auth-body">
             <div class="auth-title">Sessão criada — 8 horas</div>
-            <div class="auth-detail">As credenciais são válidas. O sistema cria uma sessão segura com duração de 8 horas e apresenta o portal de aplicações.</div>
+            <div class="auth-detail">Credenciais válidas. O sistema cria uma sessão de 8 horas e apresenta o portal.</div>
           </div>
         </div>
         <div class="auth-step">
           <div class="auth-circle ac-green">5</div>
           <div class="auth-body">
             <div class="auth-title">Acesso automático em pedidos seguintes</div>
-            <div class="auth-detail">Durante a sessão ativa, a plataforma valida automaticamente a identidade do utilizador em cada pedido. O processo é transparente — não é necessário voltar a autenticar.</div>
+            <div class="auth-detail">Durante a sessão, a plataforma valida a identidade em cada pedido. O processo é invisível para o utilizador.</div>
           </div>
         </div>
       </div>
@@ -2590,12 +2577,12 @@
       <div class="section-num">07</div>
       <p class="section-eyebrow">07 — Operação</p>
       <h2 class="section-title">Manutenção e Operação</h2>
-      <p class="section-lead">Procedimentos de operação diária, atualização da base de dados de produtos, calibração de
+      <p class="section-lead">Operação diária, atualização da base de dados de produtos, calibração de
         câmaras e resolução de problemas comuns.</p>
 
       <!-- Service status -->
       <h3 class="sub-title">Verificação do Estado dos Serviços</h3>
-      <p style="color:var(--text-muted);font-size:14px;line-height:1.8;margin-bottom:18px;">O portal de aplicações indica em tempo real se cada módulo está operacional. Em operação normal, todos os módulos devem aparecer disponíveis. Dentro de cada módulo, confirmar que as câmaras mostram o estado <em>conectada</em>.</p>
+      <p style="color:var(--text-muted);font-size:14px;line-height:1.8;margin-bottom:18px;">O portal mostra se cada módulo está operacional. Em operação normal, todos devem aparecer disponíveis. Dentro de cada módulo, verificar que as câmaras mostram <em>conectada</em>.</p>
       <div class="info-box warn-box" style="margin-bottom:28px;">
         O reinício dos serviços internos da plataforma é uma operação técnica. Se um módulo aparecer como indisponível de forma persistente, contacte o suporte técnico.
       </div>
@@ -2646,7 +2633,7 @@
 
       <!-- Calibration -->
       <h3 class="sub-title" style="margin-top:36px;">Calibração de Câmaras</h3>
-      <p style="color:var(--text-muted);font-size:14px;line-height:1.8;margin-bottom:16px;">A calibração permite ao sistema converter dimensões em píxeis para milímetros reais no tapete — valor essencial para a correta correspondência com a base de dados de produtos. Operação exclusiva do perfil <strong style="color:var(--text);">admin</strong>.</p>
+      <p style="color:var(--text-muted);font-size:14px;line-height:1.8;margin-bottom:16px;">A calibração converte dimensões em píxeis para milímetros reais no tapete. Sem calibração correta, as correspondências com a base de dados não terão a melhor precisão, o que pode afetar o desempenho do sistema. Exclusiva do perfil <strong style="color:var(--text);">admin</strong>.</p>
       <div class="two-col">
         <div>
           <p style="font-size:12px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.07em;margin-bottom:10px;">Quando Recalibrar</p>
@@ -2654,7 +2641,7 @@
             <li>Após deslocamento ou reposicionamento físico de câmara</li>
             <li>Após alteração do ângulo ou inclinação</li>
             <li>Após substituição por equipamento diferente</li>
-            <li>Quando a confiança das correspondências é sistematicamente baixa sem alterações no PMS</li>
+            <li>Quando a confiança das correspondências é sistematicamente baixa sem alterações nos dados PMS</li>
           </ul>
         </div>
         <div>
@@ -2666,9 +2653,6 @@
             <li>O sistema guarda automaticamente os novos dados</li>
             <li>Reiniciar o processamento e verificar as correspondências</li>
           </ol>
-          <div class="info-box warn-box" style="margin-top:12px;font-size:12.5px;">
-            Nunca desloque uma câmara sem recalibrar antes de retomar o processamento — câmaras descalibradas geram encaminhamentos incorretos.
-          </div>
         </div>
       </div>
 
